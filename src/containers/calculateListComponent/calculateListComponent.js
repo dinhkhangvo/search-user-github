@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import Box from '@mui/material/Box';
 import TextareaAutosize from '@mui/material/TextareaAutosize';
 import Button from '@mui/material/Button';
+import Stack from '@mui/material/Stack';
 
-let unavailableItems = [
+const unavailableItems = [
     { startPx: 10, endPx: 30 },
     { startPx: 55, endPx: 65 },
     { startPx: 35, endPx: 50 },
@@ -14,7 +14,7 @@ let unavailableItems = [
 function CalculateListComponent() {
     const [result, setResult] = useState("");
     const onClick = () => {
-        const filterList = unavailableItems.sort(function (a, b) {
+        const filterList = [...unavailableItems].sort(function (a, b) {
             return a.startPx - b.startPx || a.endPx - b.endPx;
         }).reduce((a, b) => {
             var last = a[a.length - 1] || [];
@@ -30,17 +30,17 @@ function CalculateListComponent() {
         setResult(pretty);
     };
     return (
-        <div>
-            <Button onClick={onClick} variant="contained">Test 2</Button>
-            <Box>
+        <>
+            <Stack spacing={2} style={{ width: 300 }} direction="column">
+                <Button onClick={onClick} variant="contained">Click here for Test 2</Button>
                 <TextareaAutosize
+                    disabled
                     maxRows={10}
                     placeholder="Result"
                     value={result}
-                    style={{ width: 200 }}
                 />
-            </Box>
-        </div>
+            </Stack>
+        </>
     );
 }
 

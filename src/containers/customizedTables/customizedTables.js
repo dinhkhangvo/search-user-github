@@ -33,7 +33,7 @@ const StyledTableRow = styled(TableRow)(({ theme }) => ({
 export default function CustomizedTables(props) {
   const { data } = props;
   return (
-    <TableContainer sx={{ maxHeight: 500 }} component={Paper}>
+    <TableContainer sx={{ maxHeight: 500, mb:1 }} component={Paper}>
       <Table stickyHeader sx={{ minWidth: 700 }} aria-label="customized table">
         <TableHead>
           <TableRow>

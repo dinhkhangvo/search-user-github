@@ -15,10 +15,8 @@ function SearchBox(props) {
     <Box
       component="form"
       sx={{
-        '& > :not(style)': { m: 1, width: 500 },
+        '& > :not(style)': { mb: 1, width: 300 },
       }}
-      noValidate
-      autoComplete="off"
     >
       <TextField
         name="search"
@@ -32,10 +30,11 @@ function SearchBox(props) {
           onChange(e.target.value);
         }}
         onKeyDown={(e) => {
-          if (e.key === "Enter"){
-            onSearch();
+          if (e.key === "Enter") {
             e.preventDefault();
-          } 
+            onSearch();
+            console.log("hello");
+          }
         }}
         variant="outlined"
       />
